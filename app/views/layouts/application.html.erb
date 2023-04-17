@@ -17,15 +17,14 @@
 
 
   <body>
+  <%= render "layouts/navbar" %>
+
   <br/>
 
 
   <% if notice%>
    <%= notice%>
    <% end %>
-
-
-
   <div class="container">
     <%= yield %>
     </div>
