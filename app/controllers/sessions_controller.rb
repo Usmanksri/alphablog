@@ -4,14 +4,21 @@ class SessionsController < ApplicationController
     end
 
     def create
-        user=User.find_by(email: params[:sessions][:email])
-        if user && user.authenticate(params[:sessions][:password])
-            session[:user_id]=user.id
-            flash[:notice]= "Successfully loggedin"
-            redirect_to user
+        
+        #user = User.find_by(email: params[:session][:email].downcase)
+
+        user = User.find_by(email: session_params[:email].downcase)
+
+        #puts user.username
+        #if user && user.authenticate(params[:session][:password])
+        if user && user.authenticate(session_params[:password])
+
+          session[:user_id] = user.id
+          flash[:notice] = "Logged in successfully"
+          redirect_to user
         else
-            flash[:notice]= "There are some errors while login, Hint: Credentials"
-            redirect_to articles_path
+            flash.now[:alert] = "There was something wrong with your login details"
+            render 'new'
         end
 
     end
@@ -23,4 +30,9 @@ class SessionsController < ApplicationController
 
     end
 
+
+    private
+    def session_params
+      params.require(:sessions).permit(:email, :password)
+    end
 end

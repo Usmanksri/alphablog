@@ -119,3 +119,29 @@
       margin-right: 1em; }
     .flickr_pagination .next_page {
       margin-left: 1em; }
+
+    .navbar-item-right {
+      margin-left:550px;
+      margin-right:auto;
+      }
+
+      #home-container {
+        margin-top: 10px;
+      }
+    
+    .jumbotron {
+      background-image: url('bg_image.jpg');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 455px;
+    }
+
+    .jumbotron h1 {
+      padding-top: 25px;
+     
+    }
+    
+    
+ 
+      

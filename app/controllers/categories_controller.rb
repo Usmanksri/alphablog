@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
 
-    before_action :require_admin, except: [:index, :show]
+     before_action :require_admin, except: [:index, :show]
 
     def new
         @category=Category.new
@@ -40,10 +40,9 @@ class CategoriesController < ApplicationController
     @category=Category.new(category_params)
      if @category.save
          flash[:notice]= "Category added Successfully"
-         redirect_to articles_path
+         redirect_to categories_path
      else
-         flash[:notice]= @category.errors.full_messages
-         redirect_to articles_path
+            render 'new'
      end
 
     end

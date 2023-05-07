@@ -1,4 +1,5 @@
 
+
 ActiveRecord::Schema[7.0].define(version: 2023_04_12_150840) do
   create_table "article_categories", force: :cascade do |t|
     t.integer "article_id"
